@@ -27,6 +27,11 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        PlayerMove();
+    }
+
+    void PlayerMove()
+    {
         float horizontalInput = moveInput.x;
         float verticalInput = moveInput.y;
 
