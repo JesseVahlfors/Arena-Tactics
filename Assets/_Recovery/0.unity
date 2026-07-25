@@ -835,16 +835,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnManager
   enemyPrefab: {fileID: 1793290856292372069, guid: 0d9f4f82f9553254889c4c91f2df93b3, type: 3}
-  minSpawnX: -23
-  maxSpawnX: 23
-  minSpawnZ: 0
-  maxSpawnZ: 23
-  spawnCheckRadius: 0.8
-  maxSpawnAttempts: 20
-  spawnAmount: 5
-  characterLayer:
-    serializedVersion: 2
-    m_Bits: 8
 --- !u!4 &1746332815
 Transform:
   m_ObjectHideFlags: 0
