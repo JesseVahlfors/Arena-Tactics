@@ -3,20 +3,12 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class AIController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] private float speed = 10;
     [SerializeField] private string opponentTag = "Enemy";
     private Rigidbody aiRb;
-    [SerializeField] private GameObject[] opponents;
-    void Start()
+    private void Awake()
     {
         aiRb = GetComponent<Rigidbody>();
-        opponents = GameObject.FindGameObjectsWithTag(opponentTag);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 
     void FixedUpdate()
@@ -38,6 +30,7 @@ public class AIController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        // Temporary Lab 4 combat rule: only objects tagged Enemy are destroyed.
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Destroy(collision.gameObject);
@@ -46,7 +39,7 @@ public class AIController : MonoBehaviour
 
     public GameObject FindClosestTarget()
     {
-        opponents = GameObject.FindGameObjectsWithTag(opponentTag);
+        GameObject[] opponents = GameObject.FindGameObjectsWithTag(opponentTag);
 
         GameObject closest = null;
         float closestDistance = Mathf.Infinity;
@@ -54,12 +47,13 @@ public class AIController : MonoBehaviour
 
         foreach (GameObject opponent in opponents)
         {
-            float distance = Vector3.Distance(transform.position, opponent.transform.position);
-
             if (opponent == null)
             {
                 continue;
             }
+
+            float distance = Vector3.Distance(transform.position, opponent.transform.position);
+
 
             if (distance < closestDistance)
             {
@@ -67,11 +61,6 @@ public class AIController : MonoBehaviour
                 closest = opponent;
             }
 
-        }
-
-        if (closest != null && opponentTag == "Enemy")
-        {
-            Debug.Log("Closest opponent:" + closest.name);
         }
 
         return closest;
