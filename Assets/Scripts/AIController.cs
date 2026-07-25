@@ -36,8 +36,18 @@ public class AIController : MonoBehaviour
 
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(collision.gameObject);
+        }
+    }
+
     public GameObject FindClosestTarget()
     {
+        opponents = GameObject.FindGameObjectsWithTag(opponentTag);
+
         GameObject closest = null;
         float closestDistance = Mathf.Infinity;
 
@@ -59,7 +69,7 @@ public class AIController : MonoBehaviour
 
         }
 
-        if (closest != null)
+        if (closest != null && opponentTag == "Enemy")
         {
             Debug.Log("Closest opponent:" + closest.name);
         }
