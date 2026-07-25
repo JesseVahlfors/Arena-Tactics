@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
         PlayerMove();
     }
 
+    //Move the player based on wasd key input
     void PlayerMove()
     {
         float horizontalInput = moveInput.x;
