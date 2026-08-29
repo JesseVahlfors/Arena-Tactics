@@ -2655,7 +2655,7 @@ GameObject:
   - component: {fileID: 55136447211811037}
   m_Layer: 0
   m_Name: BowAndArrow
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
