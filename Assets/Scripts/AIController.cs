@@ -23,8 +23,9 @@ public class AIController : MonoBehaviour
         Vector3 direction = (closestOpponent.transform.position - transform.position).normalized;
 
         Vector3 nextPosition = aiRb.position + direction * speed * Time.fixedDeltaTime;
-
+        Quaternion rotation = Quaternion.LookRotation(direction);
         aiRb.MovePosition(nextPosition);
+        aiRb.MoveRotation(rotation);
 
     }
 
