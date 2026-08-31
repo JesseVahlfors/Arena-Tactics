@@ -6,13 +6,20 @@ public class AIController : MonoBehaviour
     [SerializeField] private float speed = 10;
     [SerializeField] private string opponentTag = "Enemy";
     private Rigidbody aiRb;
+    private Health health;
     private void Awake()
     {
         aiRb = GetComponent<Rigidbody>();
+        health = GetComponent<Health>();
     }
 
     void FixedUpdate()
     {
+
+        if (health.IsDead)
+        {
+            return;
+        }
         GameObject closestOpponent = FindClosestTarget();
 
         if (closestOpponent == null)
@@ -51,7 +58,15 @@ public class AIController : MonoBehaviour
 
         foreach (GameObject opponent in opponents)
         {
+
             if (opponent == null)
+            {
+                continue;
+            }
+
+            Health opponentHealth = opponent.GetComponent<Health>();
+
+            if (opponentHealth == null || opponentHealth.IsDead)
             {
                 continue;
             }
