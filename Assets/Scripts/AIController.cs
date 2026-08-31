@@ -31,10 +31,13 @@ public class AIController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        // Temporary Lab 4 combat rule: only objects tagged Enemy are destroyed.
+        Health otherHealth = collision.gameObject.GetComponent<Health>();
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Destroy(collision.gameObject);
+            if (otherHealth != null)
+            {
+                otherHealth.TakeDamage(100);
+            }
         }
     }
 

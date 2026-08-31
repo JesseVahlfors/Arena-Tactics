@@ -1784,6 +1784,7 @@ GameObject:
   - component: {fileID: 7052239610266357071}
   - component: {fileID: 8194454932318296261}
   - component: {fileID: 2613055141199255190}
+  - component: {fileID: 48092689383418339}
   m_Layer: 3
   m_Name: Guardian
   m_TagString: Player
@@ -1955,6 +1956,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.9615096, y: 1.8535103, z: 1}
   m_Center: {x: -0.000000044703484, y: 0.8984768, z: 0}
+--- !u!114 &48092689383418339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3198343427104910491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99026f059c2541f42a0017d1caf49cb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  maxHealth: 1000
+  currentHealth: 0
 --- !u!1 &3198343427104910493
 GameObject:
   m_ObjectHideFlags: 0

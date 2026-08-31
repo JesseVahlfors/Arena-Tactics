@@ -266,6 +266,7 @@ GameObject:
   - component: {fileID: 3351470217551444901}
   - component: {fileID: -7484204055825715757}
   - component: {fileID: 7667574023933457761}
+  - component: {fileID: -8784214931588845500}
   m_Layer: 3
   m_Name: GruntPBR
   m_TagString: Enemy
@@ -374,6 +375,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.6013095, y: 2.1252291, z: 1}
   m_Center: {x: -0.17923748, y: 1.0491008, z: 0}
+--- !u!114 &-8784214931588845500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3155058319838657794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99026f059c2541f42a0017d1caf49cb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  maxHealth: 100
+  currentHealth: 0
 --- !u!1 &3312486801664689943
 GameObject:
   m_ObjectHideFlags: 0
