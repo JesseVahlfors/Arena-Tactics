@@ -38,8 +38,6 @@ Implemented or prototyped systems include:
 * Finding and moving toward the closest opponent
 * Enemy spawning
 * Collision and interaction logic
-* Particle and visual effects
-* Persistent game data / save system
 * Replacement of prototype primitives with game assets
 * Git/GitHub version control workflow
 
