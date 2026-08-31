@@ -286,25 +286,46 @@ Possible shared functionality:
 ##### Inheritance
 
 - [ ] Use inheritance where multiple unit types genuinely share functionality.
+- [ ] Use the planned hierarchy `Unit` → `Guardian` / `Ranger` / `Healer` if implementation confirms that the three roles genuinely share an appropriate base abstraction.
+- [ ] Keep reusable systems such as `Health` as components referenced by `Unit` rather than forcing them into the inheritance hierarchy.
 - [ ] Mark a clear example with `// INHERITANCE`.
+
+Planned example:
+
+```text
+Unit
+├─ Guardian
+├─ Ranger
+└─ Healer
+```
 
 ##### Polymorphism
 
 - [ ] Allow subclasses to provide different implementations of shared behaviour.
 - [ ] Use method overriding or another appropriate polymorphic design.
+- [ ] Give the unit roles a shared behaviour such as `PerformCombatAction()` or `ChooseTarget()` that can vary by subtype.
 - [ ] Mark a clear example with `// POLYMORPHISM`.
+
+Planned example:
+
+- Guardian performs a melee combat action against a nearby enemy.
+- Ranger performs a ranged combat action while maintaining an appropriate distance.
+- Healer prioritizes healing an injured ally and uses a secondary action when healing is unnecessary.
 
 ##### Encapsulation
 
 - [ ] Protect internal unit state from inappropriate direct modification.
 - [ ] Use properties/getters/setters where appropriate.
 - [ ] Control health changes through methods such as damage/healing.
+- [ ] Keep `currentHealth` private and expose only the read access required by UI, AI and targeting systems.
+- [ ] Enforce valid health limits inside methods such as `TakeDamage()` and `Heal()` rather than allowing other systems to assign health directly.
 - [ ] Mark a clear example with `// ENCAPSULATION`.
 
 ##### Abstraction
 
 - [ ] Hide lower-level implementation behind meaningful methods.
 - [ ] Keep higher-level AI/combat code readable.
+- [ ] Use high-level operations such as `FindTarget()`, `MoveIntoRange()`, `PerformCombatAction()`, `TakeDamage()` and `Die()` so callers do not need to know their lower-level calculations or Unity component operations.
 - [ ] Mark a clear example with `// ABSTRACTION`.
 
 #### Version Control Requirement
