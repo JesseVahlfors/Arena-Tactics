@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 176299a76ecfc7544b22a66fae200ac7
+guid: 7df524699deb44341b3693c8538df185
 PrefabImporter:
   externalObjects: {}
   userData: 
@@ -10,5 +10,5 @@ AssetOrigin:
   productId: 98187
   packageName: Mini Legion Grunt PBR HP
   packageVersion: 1.1
-  assetPath: Assets/Mini Legion Grunt PBR HP Polyart/Prefab/GruntPBR.prefab
+  assetPath: Assets/Mini Legion Grunt PBR HP Polyart/Prefab/GruntPolyart.prefab
   uploadId: 347129

@@ -4,12 +4,19 @@ public class Attack : MonoBehaviour
 {
     [SerializeField] private int attackDamage;
     [SerializeField] private int attackRange;
-    [SerializeField] private int attackCooldown;
+    [SerializeField] private float attackCooldown;
+    private float nextAttackTime;
 
     public bool CanAttack(GameObject target)
     {
 
         if (target == null)
+        {
+            return false;
+        }
+
+
+        if (Time.time < nextAttackTime)
         {
             return false;
         }
@@ -34,6 +41,8 @@ public class Attack : MonoBehaviour
         if (target.TryGetComponent<Health>(out Health targetHealth))
         {
             targetHealth.TakeDamage(attackDamage);
+            nextAttackTime = Time.time + attackCooldown;
         }
+
     }
 }

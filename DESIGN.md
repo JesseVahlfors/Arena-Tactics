@@ -195,31 +195,32 @@ The arena should remain relatively small so that combat begins quickly and the p
 
 #### Unit Health
 
-- [ ] Create reusable health system.
-- [ ] Give units maximum health.
-- [ ] Track current health.
-- [ ] Allow units to receive damage.
-- [ ] Prevent health from producing invalid values.
-- [ ] Expose health safely to other systems.
+- [x] Create reusable health system.
+- [x] Give units maximum health.
+- [x] Track current health.
+- [x] Allow units to receive damage.
+- [x] Prevent health from producing invalid values.
+- [x] Expose health safely to other systems.
 
 #### Attacking
 
-- [ ] Give units attack damage.
-- [ ] Give units attack range.
-- [ ] Add attack cooldown / attack speed.
-- [ ] Detect when a target is within attack range.
-- [ ] Stop approaching when an appropriate attack position is reached.
-- [ ] Damage the target instead of destroying it on collision.
+- [x] Give units attack damage.
+- [x] Give units attack range.
+- [x] Add attack cooldown / attack speed.
+- [x] Detect when a target is within attack range.
+- [x] Stop approaching when an appropriate attack position is reached.
+- [x] Damage the target instead of destroying it on collision.
 
 #### Death
 
-- [ ] Detect when health reaches zero.
-- [ ] Mark the unit as dead.
-- [ ] Prevent dead units from attacking.
-- [ ] Prevent dead units from moving.
-- [ ] Make AI ignore dead units when selecting targets.
+- [x] Detect when health reaches zero.
+- [x] Mark the unit as dead.
+- [x] Prevent dead units from attacking.
+- [x] Prevent dead units from moving.
+- [x] Make AI ignore dead units when selecting targets.
 - [ ] Play the character's death animation.
-- [ ] Leave the dead character GameObject/corpse in the arena instead of destroying it.
+- [x] Leave the dead character GameObject/corpse in the arena instead of destroying it.
+- [ ] Prevent dead units from physically blocking living units.
 
 #### Battle State
 
