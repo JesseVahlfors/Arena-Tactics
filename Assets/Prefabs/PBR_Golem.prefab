@@ -76,6 +76,8 @@ GameObject:
   - component: {fileID: 95380085654935804}
   - component: {fileID: -1213065771227022972}
   - component: {fileID: -4072353492494518120}
+  - component: {fileID: 8086922821443758820}
+  - component: {fileID: 563798440618379940}
   m_Layer: 3
   m_Name: PBR_Golem
   m_TagString: Enemy
@@ -163,6 +165,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AIController
   speed: 10
   opponentTag: Enemy
+--- !u!114 &8086922821443758820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067925524328404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a49f19fb874485447a5f3e010feb77f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Attack
+  attackDamage: 1
+  attackRange: 0
+  attackCooldown: 0
+--- !u!114 &563798440618379940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067925524328404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99026f059c2541f42a0017d1caf49cb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  maxHealth: 1000
+  currentHealth: 0
 --- !u!1 &1088256926929212
 GameObject:
   m_ObjectHideFlags: 0
