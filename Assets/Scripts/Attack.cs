@@ -53,7 +53,7 @@ public class Attack : MonoBehaviour
         {
             targetHealth.TakeDamage(attackDamage);
             nextAttackTime = Time.time + attackCooldown;
-            animator.;
+            animator.SetTrigger(AttackHash);
         }
 
     }
