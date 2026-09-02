@@ -31,11 +31,15 @@ public class AIController : MonoBehaviour
             return;
         }
 
-        bool canAttack = attack.CanAttack(closestOpponent);
+        bool inRange = attack.InRange(closestOpponent);
+        bool canAttack = attack.CanAttack();
 
-        if (canAttack)
+        if (inRange)
         {
-            attack.AttackTarget(closestOpponent);
+            if (canAttack)
+            {
+                attack.AttackTarget(closestOpponent);
+            }
             return;
         }
 
@@ -46,20 +50,7 @@ public class AIController : MonoBehaviour
         Quaternion rotation = Quaternion.LookRotation(direction);
         aiRb.MovePosition(nextPosition);
         aiRb.MoveRotation(rotation);
-
     }
-
-    /* private void OnCollisionEnter(Collision collision)
-    {
-        Health otherHealth = collision.gameObject.GetComponent<Health>();
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            if (otherHealth != null)
-            {
-                otherHealth.TakeDamage(100);
-            }
-        }
-    } */
 
     public GameObject FindClosestTarget()
     {

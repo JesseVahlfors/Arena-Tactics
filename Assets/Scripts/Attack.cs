@@ -2,21 +2,32 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
+    private static readonly int AttackHash = Animator.StringToHash("Attack");
     [SerializeField] private int attackDamage;
     [SerializeField] private int attackRange;
     [SerializeField] private float attackCooldown;
     private float nextAttackTime;
+    private Animator animator;
 
-    public bool CanAttack(GameObject target)
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
+
+    public bool CanAttack()
+    {
+        if (Time.time > nextAttackTime)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public bool InRange(GameObject target)
     {
 
         if (target == null)
-        {
-            return false;
-        }
-
-
-        if (Time.time < nextAttackTime)
         {
             return false;
         }
@@ -42,6 +53,7 @@ public class Attack : MonoBehaviour
         {
             targetHealth.TakeDamage(attackDamage);
             nextAttackTime = Time.time + attackCooldown;
+            animator.;
         }
 
     }
