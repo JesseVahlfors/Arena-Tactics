@@ -1,18 +1,21 @@
-using System;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BattleManager : MonoBehaviour
 {
+    public bool battleStarted;
     public bool battleEnded;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
+    [SerializeField] private GameObject battleEndPanel;
+    [SerializeField] private TMP_Text resultText;
 
-    }
-
-    // Update is called once per frame
     void Update()
     {
+        if (!battleStarted)
+        {
+            return;
+        }
+
         if (battleEnded)
         {
             return;
@@ -54,12 +57,26 @@ public class BattleManager : MonoBehaviour
     public void Victory()
     {
         battleEnded = true;
-        Debug.Log("Victory!");
+        resultText.text = "Victory!";
+        battleEndPanel.SetActive(true);
     }
 
     public void Defeat()
     {
         battleEnded = true;
-        Debug.Log("Defeat :(");
+        resultText.text = "Defeat!";
+        battleEndPanel.SetActive(true);
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene("MainScene");
+        battleEndPanel.SetActive(false);
+        battleStarted = false;
+    }
+
+    public void BattleStart()
+    {
+        battleStarted = true;
     }
 }

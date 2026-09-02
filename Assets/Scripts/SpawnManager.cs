@@ -7,11 +7,13 @@ public class SpawnManager : MonoBehaviour
     [Header("Positions")]
     [SerializeField] private Transform spawnPoint1;
     [SerializeField] private Transform spawnPoint2;
+    [SerializeField] private BattleManager battleManager;
 
     private void Start()
     {
         SpawnEnemy(raiderPrefab, spawnPoint1);
         SpawnEnemy(raiderPrefab, spawnPoint2);
+        battleManager.BattleStart();
     }
 
     private void SpawnEnemy(GameObject prefab, Transform spawnPoint)
