@@ -218,9 +218,9 @@ The arena should remain relatively small so that combat begins quickly and the p
 - [x] Prevent dead units from attacking.
 - [x] Prevent dead units from moving.
 - [x] Make AI ignore dead units when selecting targets.
-- [ ] Play the character's death animation.
+- [x] Play the character's death animation.
 - [x] Leave the dead character GameObject/corpse in the arena instead of destroying it.
-- [ ] Prevent dead units from physically blocking living units.
+- [x] Prevent dead units from physically blocking living units.
 
 #### Battle State
 

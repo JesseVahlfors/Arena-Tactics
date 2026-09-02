@@ -30,7 +30,7 @@ public class Health : MonoBehaviour
         if (IsDead)
         {
             animator.SetTrigger(DieHash);
-
+            gameObject.layer = LayerMask.NameToLayer("DeadUnit");
         }
     }
     public bool IsDead => currentHealth == 0;
