@@ -224,10 +224,10 @@ The arena should remain relatively small so that combat begins quickly and the p
 
 #### Battle State
 
-- [ ] Detect when all enemies are dead.
-- [ ] Trigger victory.
-- [ ] Detect when the entire player party is dead.
-- [ ] Trigger defeat.
+- [x] Detect when all enemies are dead.
+- [x] Trigger victory.
+- [x] Detect when the entire player party is dead.
+- [x] Trigger defeat.
 - [ ] Allow the battle to be restarted.
 
 **Stage 2 completion condition:**
