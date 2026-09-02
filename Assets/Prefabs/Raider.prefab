@@ -2370,9 +2370,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a49f19fb874485447a5f3e010feb77f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Attack
-  attackDamage: 1
-  attackRange: 4
-  attackCooldown: 0
+  attackDamage: 50
+  attackRange: 5
+  attackCooldown: 2
 --- !u!114 &767246295947231587
 MonoBehaviour:
   m_ObjectHideFlags: 0
