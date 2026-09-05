@@ -763,16 +763,18 @@ The polished WebGL build is published to Unity Play and submitted for the Unity 
 
 ## 11. Current Development Status
 
-**Current milestone:** Transition from Prototype Foundation to Real Combat Loop.
+**Current milestone:** Real Combat Loop complete. Preparing for Party Roles and Combat Behaviour.
 
 Stage 1 established the arena, autonomous target-seeking movement, multiple characters, replacement assets, spawning, camera and WebGL foundation.
 
-The next development priority is **Stage 2: Real Combat Loop**.
-
-The current temporary behaviour where characters are destroyed through collision should be replaced with:
+Stage 2 replaced the temporary collision-based prototype with a reusable combat loop:
 
 `Target → Approach → Attack → Damage → Death → Retarget → Victory/Defeat`
 
-Dead characters should remain in the scene so their death animations and final positions can be preserved, while all AI systems must treat them as invalid targets.
+Units now have reusable health and attack systems with configurable health, damage, attack range and cooldowns. AI approaches living targets, faces them, attacks when in range, and retargets when necessary.
 
-Once this combat foundation is reliable, development can move into the distinct Guardian, Ranger and Healer behaviours required by Stage 3.
+Dead units stop moving and attacking, are ignored by targeting AI, play their death animations, and remain in the arena without physically blocking living units.
+
+The prototype now uses a finite Guardian-versus-Raiders test encounter. The battle detects victory and defeat, displays the result through a simple UI, and allows the player to restart the encounter.
+
+The next development priority is **Stage 3: Party Roles and Combat Behaviour**. This stage will introduce the Guardian, Ranger and Healer as mechanically distinct party members and begin moving the combat AI beyond shared closest-target behaviour.
