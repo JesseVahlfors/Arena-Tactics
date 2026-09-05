@@ -31,6 +31,9 @@ public class AIController : MonoBehaviour
             return;
         }
 
+        Vector3 direction = (closestOpponent.transform.position - transform.position).normalized;
+        Quaternion rotation = Quaternion.LookRotation(direction);
+
         bool inRange = attack.InRange(closestOpponent);
         bool canAttack = attack.CanAttack();
 
@@ -44,10 +47,8 @@ public class AIController : MonoBehaviour
         }
 
 
-        Vector3 direction = (closestOpponent.transform.position - transform.position).normalized;
 
         Vector3 nextPosition = aiRb.position + direction * speed * Time.fixedDeltaTime;
-        Quaternion rotation = Quaternion.LookRotation(direction);
         aiRb.MovePosition(nextPosition);
         aiRb.MoveRotation(rotation);
     }
