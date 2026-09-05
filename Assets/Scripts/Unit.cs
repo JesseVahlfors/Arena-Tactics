@@ -14,6 +14,8 @@ public class Unit : MonoBehaviour
     protected float Speed => speed;
     [SerializeField] private string targetTag = "Enemy";
     protected string TargetTag => targetTag;
+    private GameObject currentTarget;
+    protected GameObject CurrentTarget => currentTarget;
 
     protected virtual void Awake()
     {
@@ -22,21 +24,48 @@ public class Unit : MonoBehaviour
         attack = GetComponent<Attack>();
     }
 
+
+    void FixedUpdate()
+    {
+        if (health.IsDead)
+        {
+            return;
+        }
+
+        if (!IsTargetValid())
+        {
+            SetTarget(FindTarget());
+        }
+
+        if (CurrentTarget == null)
+        {
+            return;
+        }
+
+        Vector3 direction = GetDirectionToTarget();
+        FaceTarget(direction);
+
+        if (attack.InRange(CurrentTarget))
+        {
+            PerformCombatAction();
+        }
+        else
+        {
+            MoveIntoRange(direction);
+        }
+
+    }
+
     protected virtual GameObject FindTarget()
     {
-        GameObject[] targets = GameObject.FindGameObjectsWithTag(targetTag);
+        GameObject[] targets = GameObject.FindGameObjectsWithTag(TargetTag);
 
-        GameObject closest = null;
+        GameObject closestTarget = null;
         float closestDistance = Mathf.Infinity;
 
 
         foreach (GameObject target in targets)
         {
-
-            if (target == null)
-            {
-                continue;
-            }
 
             Health targetHealth = target.GetComponent<Health>();
 
@@ -51,12 +80,72 @@ public class Unit : MonoBehaviour
             if (distance < closestDistance)
             {
                 closestDistance = distance;
-                closest = target;
+                closestTarget = target;
             }
 
         }
 
-        return closest;
+        return closestTarget;
+    }
+
+    protected void SetTarget(GameObject target)
+    {
+        currentTarget = target;
+    }
+
+    protected Vector3 GetDirectionToTarget()
+    {
+        Vector3 direction = CurrentTarget.transform.position - transform.position;
+        direction.y = 0f;
+
+        return direction;
+    }
+
+    protected void FaceTarget(Vector3 direction)
+    {
+        if (direction.sqrMagnitude > 0.001f)
+        {
+            direction = direction.normalized;
+
+            Quaternion rotation = Quaternion.LookRotation(direction);
+            rb.MoveRotation(rotation);
+        }
+    }
+
+    protected void MoveIntoRange(Vector3 direction)
+    {
+        direction = direction.normalized;
+
+        Vector3 nextPosition = rb.position + Speed * Time.fixedDeltaTime * direction;
+        rb.MovePosition(nextPosition);
+    }
+
+    protected virtual void PerformCombatAction()
+    {
+        if (attack.CanAttack())
+        {
+            attack.AttackTarget(CurrentTarget);
+        }
+    }
+
+    protected bool IsTargetValid()
+    {
+        if (CurrentTarget == null)
+        {
+            return false;
+        }
+
+        if (!CurrentTarget.TryGetComponent<Health>(out Health targetHealth))
+        {
+            return false;
+        }
+
+        if (targetHealth.IsDead)
+        {
+            return false;
+        }
+
+        return true;
     }
 
 }
