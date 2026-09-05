@@ -228,7 +228,7 @@ The arena should remain relatively small so that combat begins quickly and the p
 - [x] Trigger victory.
 - [x] Detect when the entire player party is dead.
 - [x] Trigger defeat.
-- [ ] Allow the battle to be restarted.
+- [x] Allow the battle to be restarted.
 
 **Stage 2 completion condition:**
 
