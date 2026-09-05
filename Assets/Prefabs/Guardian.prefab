@@ -1782,10 +1782,10 @@ GameObject:
   - component: {fileID: 3198343427105009915}
   - component: {fileID: 3198343427114295103}
   - component: {fileID: 7052239610266357071}
-  - component: {fileID: 8194454932318296261}
   - component: {fileID: 2613055141199255190}
-  - component: {fileID: 48092689383418339}
   - component: {fileID: 2251464732327261821}
+  - component: {fileID: 2320441617096391141}
+  - component: {fileID: -7555279419850769056}
   m_Layer: 3
   m_Name: Guardian
   m_TagString: Player
@@ -1922,20 +1922,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8194454932318296261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3198343427104910491}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf6a3c704ebf0b940b29199de0c25db3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AIController
-  speed: 10
-  opponentTag: Enemy
 --- !u!65 &2613055141199255190
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1957,20 +1943,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.9615096, y: 1.8535103, z: 1}
   m_Center: {x: -0.000000044703484, y: 0.8984768, z: 0}
---- !u!114 &48092689383418339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3198343427104910491}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99026f059c2541f42a0017d1caf49cb7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Health
-  maxHealth: 1000
-  currentHealth: 0
 --- !u!114 &2251464732327261821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1986,6 +1958,34 @@ MonoBehaviour:
   attackDamage: 50
   attackRange: 4
   attackCooldown: 2
+--- !u!114 &2320441617096391141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3198343427104910491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99026f059c2541f42a0017d1caf49cb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  maxHealth: 1000
+  currentHealth: 0
+--- !u!114 &-7555279419850769056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3198343427104910491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51bcf46163752c3409feeef002457e28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Guardian
+  speed: 10
+  targetTag: Enemy
 --- !u!1 &3198343427104910493
 GameObject:
   m_ObjectHideFlags: 0
