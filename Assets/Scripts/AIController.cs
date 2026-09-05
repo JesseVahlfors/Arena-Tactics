@@ -37,7 +37,7 @@ public class AIController : MonoBehaviour
         {
             direction = direction.normalized;
 
-            Quaternion rotation = Quaternion.LookRotation(direction).normalized;
+            Quaternion rotation = Quaternion.LookRotation(direction);
             aiRb.MoveRotation(rotation);
         }
 
