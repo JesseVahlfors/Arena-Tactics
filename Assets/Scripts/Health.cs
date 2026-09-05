@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    private static readonly int AttackHash = Animator.StringToHash("Attack");
     private static readonly int DieHash = Animator.StringToHash("Die");
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private int currentHealth;
@@ -10,10 +11,7 @@ public class Health : MonoBehaviour
     void Awake()
     {
         animator = GetComponent<Animator>();
-    }
 
-    void Start()
-    {
         currentHealth = maxHealth;
     }
 
@@ -29,6 +27,7 @@ public class Health : MonoBehaviour
 
         if (IsDead)
         {
+            animator.ResetTrigger(AttackHash);
             animator.SetTrigger(DieHash);
             gameObject.layer = LayerMask.NameToLayer("DeadUnit");
         }

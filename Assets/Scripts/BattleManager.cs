@@ -70,9 +70,9 @@ public class BattleManager : MonoBehaviour
 
     public void RestartGame()
     {
+        battleStarted = false;
         SceneManager.LoadScene("MainScene");
         battleEndPanel.SetActive(false);
-        battleStarted = false;
     }
 
     public void BattleStart()
