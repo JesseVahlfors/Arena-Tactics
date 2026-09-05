@@ -31,8 +31,17 @@ public class AIController : MonoBehaviour
             return;
         }
 
-        Vector3 direction = (closestOpponent.transform.position - transform.position).normalized;
-        Quaternion rotation = Quaternion.LookRotation(direction);
+        Vector3 direction = closestOpponent.transform.position - transform.position;
+        direction.y = 0f;
+        if (direction.sqrMagnitude > 0.001f)
+        {
+            direction = direction.normalized;
+
+            Quaternion rotation = Quaternion.LookRotation(direction).normalized;
+            aiRb.MoveRotation(rotation);
+        }
+
+
 
         bool inRange = attack.InRange(closestOpponent);
         bool canAttack = attack.CanAttack();
@@ -48,9 +57,8 @@ public class AIController : MonoBehaviour
 
 
 
-        Vector3 nextPosition = aiRb.position + direction * speed * Time.fixedDeltaTime;
+        Vector3 nextPosition = aiRb.position + speed * Time.fixedDeltaTime * direction;
         aiRb.MovePosition(nextPosition);
-        aiRb.MoveRotation(rotation);
     }
 
     public GameObject FindClosestTarget()
