@@ -61,7 +61,7 @@ public class AIController : MonoBehaviour
         aiRb.MovePosition(nextPosition);
     }
 
-    public GameObject FindClosestTarget()
+    private GameObject FindClosestTarget()
     {
         GameObject[] opponents = GameObject.FindGameObjectsWithTag(opponentTag);
 
