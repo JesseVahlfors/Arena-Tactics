@@ -1955,7 +1955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a49f19fb874485447a5f3e010feb77f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Attack
-  attackDamage: 50
+  attackDamage: 25
   attackRange: 4
   attackCooldown: 2
 --- !u!114 &2320441617096391141
@@ -1970,7 +1970,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99026f059c2541f42a0017d1caf49cb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  maxHealth: 1000
+  maxHealth: 200
   currentHealth: 0
 --- !u!114 &-7555279419850769056
 MonoBehaviour:
