@@ -6,6 +6,7 @@ public class Attack : MonoBehaviour
     [SerializeField] private int attackDamage;
     [SerializeField] private int attackRange;
     [SerializeField] private float attackCooldown;
+    private GameObject attackTarget;
     private float nextAttackTime;
     private Animator animator;
 
@@ -49,12 +50,43 @@ public class Attack : MonoBehaviour
             return;
         }
 
+        attackTarget = target;
+        BeginAttack(target);
+    }
+
+    public void BeginAttack(GameObject target)
+    {
+        if (target == null)
+        {
+            return;
+        }
+
+        nextAttackTime = Time.time + attackCooldown;
+        animator.SetTrigger(AttackHash);
+
+    }
+
+    public void OnAttackHit()
+    {
+        if (attackTarget == null)
+        {
+            return;
+        }
+
+        ApplyDamage(attackTarget);
+        attackTarget = null;
+    }
+
+    public void ApplyDamage(GameObject target)
+    {
+        if (target == null)
+        {
+            return;
+        }
+
         if (target.TryGetComponent<Health>(out Health targetHealth))
         {
             targetHealth.TakeDamage(attackDamage);
-            nextAttackTime = Time.time + attackCooldown;
-            animator.SetTrigger(AttackHash);
         }
-
     }
 }
