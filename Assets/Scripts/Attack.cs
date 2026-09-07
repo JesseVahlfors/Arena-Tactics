@@ -74,6 +74,10 @@ public class Attack : MonoBehaviour
         }
 
         ApplyDamage(attackTarget);
+    }
+
+    public void OnAttackEnd()
+    {
         attackTarget = null;
     }
 

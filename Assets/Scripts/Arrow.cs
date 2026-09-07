@@ -7,11 +7,6 @@ public class Arrow : MonoBehaviour
     private GameObject target;
     private Attack sourceAttack;
 
-    void Start()
-    {
-
-    }
-
     void Update()
     {
         ArrowFlight();
