@@ -6,6 +6,8 @@ public class Health : MonoBehaviour
     private static readonly int DieHash = Animator.StringToHash("Die");
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private int currentHealth;
+    public bool IsInjured => currentHealth < maxHealth;
+    public bool IsDead => currentHealth == 0;
     private Animator animator;
 
     void Awake()
@@ -32,6 +34,17 @@ public class Health : MonoBehaviour
             gameObject.layer = LayerMask.NameToLayer("DeadUnit");
         }
     }
-    public bool IsDead => currentHealth == 0;
+
+    public void Heal(int amount)
+    {
+        if (IsDead)
+        {
+            return;
+        }
+
+        currentHealth += amount;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+
+    }
 
 }
