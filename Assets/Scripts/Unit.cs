@@ -148,4 +148,9 @@ public class Unit : MonoBehaviour
         return true;
     }
 
+    protected virtual bool ShouldFindNewTarget()
+    {
+        return !IsTargetValid();
+    }
+
 }
