@@ -5,10 +5,6 @@ public class Ranger : Unit
     [SerializeField] private GameObject arrowPrefab;
     [SerializeField] private Transform arrowSpawnPoint;
 
-    protected override void PerformCombatAction()
-    {
-        base.PerformCombatAction();
-    }
     public void SpawnArrow()
     {
         GameObject spawnedArrow = Instantiate(arrowPrefab, arrowSpawnPoint.position, arrowSpawnPoint.rotation);
