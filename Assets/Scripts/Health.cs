@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 public class Health : MonoBehaviour
 {
     private static readonly int AttackHash = Animator.StringToHash("Attack");
@@ -8,6 +9,7 @@ public class Health : MonoBehaviour
     [SerializeField] private int currentHealth;
     public bool IsInjured => currentHealth < maxHealth;
     public bool IsDead => currentHealth == 0;
+    public float HealthPercentage => (float)currentHealth / maxHealth;
     private Animator animator;
 
     void Awake()

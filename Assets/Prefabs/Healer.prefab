@@ -14088,10 +14088,10 @@ GameObject:
   - component: {fileID: 927823265588962564}
   - component: {fileID: 927823265581435584}
   - component: {fileID: -8526776696460967653}
-  - component: {fileID: 6821262120344789485}
   - component: {fileID: 2325165228229807592}
   - component: {fileID: 8418332797531636911}
   - component: {fileID: 7726810765918077479}
+  - component: {fileID: 7707180331543004067}
   m_Layer: 3
   m_Name: Healer
   m_TagString: Player
@@ -14228,20 +14228,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6821262120344789485
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 927823265588738404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf6a3c704ebf0b940b29199de0c25db3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AIController
-  speed: 10
-  opponentTag: Enemy
 --- !u!65 &2325165228229807592
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14261,8 +14247,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1.9468062, z: 1}
+  m_Center: {x: 0, y: 0.95646596, z: 0}
 --- !u!114 &8418332797531636911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14275,9 +14261,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a49f19fb874485447a5f3e010feb77f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Attack
-  attackDamage: 0
-  attackRange: 0
-  attackCooldown: 0
+  attackDamage: 25
+  attackRange: 15
+  attackCooldown: 2
 --- !u!114 &7726810765918077479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14292,6 +14278,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Health
   maxHealth: 100
   currentHealth: 0
+--- !u!114 &7707180331543004067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 927823265588738404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfa8c19fdeb945b4787e513269299610, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Healer
+  speed: 10
+  targetTag: Player
+  healAmount: 75
+  healCooldown: 2
 --- !u!1 &927823265588738406
 GameObject:
   m_ObjectHideFlags: 0
