@@ -2808,6 +2808,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ranger
   speed: 10
   targetTag: Enemy
+  arrowPrefab: {fileID: 1741976954598634, guid: c19239dc55bd2374a827e25de426f77c, type: 3}
+  arrowSpawnPoint: {fileID: 8926069543493919049}
 --- !u!65 &861576663722674159
 BoxCollider:
   m_ObjectHideFlags: 0

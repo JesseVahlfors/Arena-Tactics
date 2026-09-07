@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
 public class Arrow : MonoBehaviour
 {
     [SerializeField] private float speed = 15f;
@@ -32,7 +31,9 @@ public class Arrow : MonoBehaviour
             return;
         }
 
-        float distance = Vector3.Distance(transform.position, target.transform.position);
+        Vector3 targetPosition = target.transform.position + Vector3.up * 1.2f;
+
+        float distance = Vector3.Distance(transform.position, targetPosition);
 
         if (distance <= hitDistance)
         {
@@ -42,6 +43,6 @@ public class Arrow : MonoBehaviour
         }
 
         float step = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step);
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
     }
 }
