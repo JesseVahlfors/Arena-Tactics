@@ -14292,8 +14292,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Healer
   speed: 10
   targetTag: Player
-  healAmount: 75
+  healAmount: 200
   healCooldown: 2
+  priorityCheckInterval: 0.25
 --- !u!1 &927823265588738406
 GameObject:
   m_ObjectHideFlags: 0

@@ -32,7 +32,7 @@ public class Unit : MonoBehaviour
             return;
         }
 
-        if (!IsTargetValid())
+        if (ShouldFindNewTarget())
         {
             SetTarget(FindTarget());
         }

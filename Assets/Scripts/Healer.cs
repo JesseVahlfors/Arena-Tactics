@@ -107,7 +107,10 @@ public class Healer : Unit
         {
             targetHealth.Heal(healAmount);
         }
+    }
 
+    public void OnHealEnd()
+    {
         healTarget = null;
     }
 
@@ -116,6 +119,11 @@ public class Healer : Unit
         if (base.ShouldFindNewTarget())
         {
             return true;
+        }
+
+        if (healTarget != null)
+        {
+            return false;
         }
 
         if (Time.time < nextPriorityCheckTime)
@@ -129,20 +137,25 @@ public class Healer : Unit
 
         if (!isHealing)
         {
-            if (injuredAlly != null)
-            {
-                return true;
-            }
-
-
-            return false;
+            return injuredAlly != null;
         }
 
-        if (isHealing &&
-    CurrentTarget.TryGetComponent<Health>(out Health targetHealth) &&
-    !targetHealth.IsInjured)
+        if (isHealing)
         {
-            return true;
+            if (CurrentTarget.TryGetComponent<Health>(out Health currentHealth))
+            {
+                if (!currentHealth.IsInjured)
+                {
+                    return true;
+                }
+
+                if (injuredAlly != null &&
+                    injuredAlly.TryGetComponent<Health>(out Health lowestHealth) &&
+                    lowestHealth.HealthPercentage < currentHealth.HealthPercentage)
+                {
+                    return true;
+                }
+            }
         }
 
         return false;
