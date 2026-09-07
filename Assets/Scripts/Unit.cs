@@ -55,7 +55,7 @@ public class Unit : MonoBehaviour
         }
 
     }
-
+    // ABSTRACTION: Hides target-search implementation behind a meaningful operation.   
     protected virtual GameObject FindTarget()
     {
         GameObject[] targets = GameObject.FindGameObjectsWithTag(TargetTag);

@@ -6,6 +6,7 @@ public class Health : MonoBehaviour
     private static readonly int AttackHash = Animator.StringToHash("Attack");
     private static readonly int DieHash = Animator.StringToHash("Die");
     [SerializeField] private int maxHealth = 100;
+    // ENCAPSULATION: Health can only be changed through TakeDamage() and Heal().
     [SerializeField] private int currentHealth;
     public bool IsInjured => currentHealth < maxHealth;
     public bool IsDead => currentHealth == 0;

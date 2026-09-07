@@ -262,34 +262,34 @@ Possible shared functionality:
 
 #### Guardian
 
-- [ ] Implement Guardian combat behaviour.
-- [ ] Give Guardian high durability.
-- [ ] Use melee combat.
-- [ ] Make Guardian naturally operate on the frontline.
+- [x] Implement Guardian combat behaviour.
+- [x] Give Guardian high durability.
+- [x] Use melee combat.
+- [x] Make Guardian naturally operate on the frontline.
 
 #### Ranger
 
-- [ ] Implement Ranger combat behaviour.
-- [ ] Give Ranger ranged attacks.
-- [ ] Stop Ranger at an appropriate attack distance.
-- [ ] Add ranged attack animation/effect.
+- [x] Implement Ranger combat behaviour.
+- [x] Give Ranger ranged attacks.
+- [x] Stop Ranger at an appropriate attack distance.
+- [x] Add ranged attack animation/effect.
 
 #### Healer
 
-- [ ] Implement Healer combat behaviour.
-- [ ] Detect injured allies.
-- [ ] Select an ally to heal.
-- [ ] Restore health.
-- [ ] Give Healer useful behaviour when nobody requires healing.
+- [x] Implement Healer combat behaviour.
+- [x] Detect injured allies.
+- [x] Select an ally to heal.
+- [x] Restore health.
+- [x] Give Healer useful behaviour when nobody requires healing.
 
 #### Unity OOP Requirements
 
 ##### Inheritance
 
-- [ ] Use inheritance where multiple unit types genuinely share functionality.
-- [ ] Use the planned hierarchy `Unit` → `Guardian` / `Ranger` / `Healer` if implementation confirms that the three roles genuinely share an appropriate base abstraction.
-- [ ] Keep reusable systems such as `Health` as components referenced by `Unit` rather than forcing them into the inheritance hierarchy.
-- [ ] Mark a clear example with `// INHERITANCE`.
+- [x] Use inheritance where multiple unit types genuinely share functionality.
+- [x] Use the planned hierarchy `Unit` → `Guardian` / `Ranger` / `Healer` if implementation confirms that the three roles genuinely share an appropriate base abstraction.
+- [x] Keep reusable systems such as `Health` as components referenced by `Unit` rather than forcing them into the inheritance hierarchy.
+- [x] Mark a clear example with `// INHERITANCE`.
 
 Planned example:
 
@@ -302,10 +302,10 @@ Unit
 
 ##### Polymorphism
 
-- [ ] Allow subclasses to provide different implementations of shared behaviour.
-- [ ] Use method overriding or another appropriate polymorphic design.
-- [ ] Give the unit roles a shared behaviour such as `PerformCombatAction()` or `ChooseTarget()` that can vary by subtype.
-- [ ] Mark a clear example with `// POLYMORPHISM`.
+- [x] Allow subclasses to provide different implementations of shared behaviour.
+- [x] Use method overriding or another appropriate polymorphic design.
+- [x] Give the unit roles a shared behaviour such as `PerformCombatAction()` or `ChooseTarget()` that can vary by subtype.
+- [x] Mark a clear example with `// POLYMORPHISM`.
 
 Planned example:
 
@@ -315,24 +315,24 @@ Planned example:
 
 ##### Encapsulation
 
-- [ ] Protect internal unit state from inappropriate direct modification.
-- [ ] Use properties/getters/setters where appropriate.
-- [ ] Control health changes through methods such as damage/healing.
-- [ ] Keep `currentHealth` private and expose only the read access required by UI, AI and targeting systems.
-- [ ] Enforce valid health limits inside methods such as `TakeDamage()` and `Heal()` rather than allowing other systems to assign health directly.
-- [ ] Mark a clear example with `// ENCAPSULATION`.
+- [x] Protect internal unit state from inappropriate direct modification.
+- [x] Use properties/getters/setters where appropriate.
+- [x] Control health changes through methods such as damage/healing.
+- [x] Keep `currentHealth` private and expose only the read access required by UI, AI and targeting systems.
+- [x] Enforce valid health limits inside methods such as `TakeDamage()` and `Heal()` rather than allowing other systems to assign health directly.
+- [x] Mark a clear example with `// ENCAPSULATION`.
 
 ##### Abstraction
 
-- [ ] Hide lower-level implementation behind meaningful methods.
-- [ ] Keep higher-level AI/combat code readable.
-- [ ] Use high-level operations such as `FindTarget()`, `MoveIntoRange()`, `PerformCombatAction()`, `TakeDamage()` and `Die()` so callers do not need to know their lower-level calculations or Unity component operations.
-- [ ] Mark a clear example with `// ABSTRACTION`.
+- [x] Hide lower-level implementation behind meaningful methods.
+- [x] Keep higher-level AI/combat code readable.
+- [x] Use high-level operations such as `FindTarget()`, `MoveIntoRange()`, `PerformCombatAction()`, `TakeDamage()` and `Die()` so callers do not need to know their lower-level calculations or Unity component operations.
+- [x] Mark a clear example with `// ABSTRACTION`.
 
 #### Version Control Requirement
 
-- [ ] Develop a feature using a separate Git branch.
-- [ ] Make multiple meaningful commits.
+- [x] Develop a feature using a separate Git branch.
+- [x] Make multiple meaningful commits.
 - [ ] Merge completed feature branch into the main development branch.
 
 **Stage 3 completion condition:**

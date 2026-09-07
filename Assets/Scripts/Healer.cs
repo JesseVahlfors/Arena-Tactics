@@ -64,6 +64,7 @@ public class Healer : Unit
         return lowestHealthTarget;
     }
 
+    // POLYMORPHISM: Healer replaces the default combat action with healing or fallback attacking.
     protected override void PerformCombatAction()
     {
         if (isHealing)
