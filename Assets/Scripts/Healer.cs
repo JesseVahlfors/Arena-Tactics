@@ -99,6 +99,11 @@ public class Healer : Unit
     public bool CanHeal() => Time.time > nextHealTime;
     public void OnHealHit()
     {
+        if (health.IsDead)
+        {
+            return;
+        }
+
         if (healTarget == null)
         {
             return;

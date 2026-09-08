@@ -7,6 +7,11 @@ public class Ranger : Unit
 
     public void SpawnArrow()
     {
+        if (health.IsDead)
+        {
+            return;
+        }
+
         GameObject spawnedArrow = Instantiate(arrowPrefab, arrowSpawnPoint.position, arrowSpawnPoint.rotation);
 
         if (!spawnedArrow.TryGetComponent<Arrow>(out Arrow arrow))

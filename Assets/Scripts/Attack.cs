@@ -1,5 +1,7 @@
 using UnityEngine;
+[RequireComponent(typeof(Animator))]
 
+[RequireComponent(typeof(Health))]
 public class Attack : MonoBehaviour
 {
     private static readonly int AttackHash = Animator.StringToHash("Attack");
@@ -9,10 +11,12 @@ public class Attack : MonoBehaviour
     private GameObject attackTarget;
     private float nextAttackTime;
     private Animator animator;
+    private Health health;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        health = GetComponent<Health>();
     }
 
     public bool CanAttack()
@@ -68,6 +72,11 @@ public class Attack : MonoBehaviour
 
     public void OnAttackHit()
     {
+        if (health.IsDead)
+        {
+            return;
+        }
+
         if (attackTarget == null)
         {
             return;
