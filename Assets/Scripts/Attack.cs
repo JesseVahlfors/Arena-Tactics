@@ -2,7 +2,6 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 
 [RequireComponent(typeof(Health))]
-[RequireComponent(typeof(Unit))]
 public class Attack : MonoBehaviour
 {
     private static readonly int AttackHash = Animator.StringToHash("Attack");

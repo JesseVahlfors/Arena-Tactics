@@ -8,6 +8,7 @@ public class Healer : Unit
     [SerializeField] private float priorityCheckInterval = 0.25f;
     private float nextPriorityCheckTime;
     private GameObject healTarget;
+    private const string AllyTag = "Player";
     private bool isHealing;
     private float nextHealTime;
     private Animator animator;
@@ -20,7 +21,7 @@ public class Healer : Unit
 
     protected override GameObject FindTarget()
     {
-        GameObject target = FindLowestHealthTarget("Player", injuredOnly: true);
+        GameObject target = FindLowestHealthTarget(AllyTag, injuredOnly: true);
 
         if (target != null)
         {
@@ -79,7 +80,7 @@ public class Healer : Unit
         }
     }
 
-    public void BeginHeal(GameObject target)
+    private void BeginHeal(GameObject target)
     {
         if (target == null)
         {
@@ -142,7 +143,7 @@ public class Healer : Unit
 
         nextPriorityCheckTime = Time.time + priorityCheckInterval;
 
-        GameObject injuredAlly = FindLowestHealthTarget("Player", true);
+        GameObject injuredAlly = FindLowestHealthTarget(AllyTag, true);
 
         if (!isHealing)
         {

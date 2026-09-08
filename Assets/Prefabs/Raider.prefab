@@ -2221,7 +2221,7 @@ GameObject:
   - component: {fileID: 6168090633256133685}
   - component: {fileID: 767246295947231587}
   - component: {fileID: 1695777260189435455}
-  - component: {fileID: 6014902947280870479}
+  - component: {fileID: 1405858825596645792}
   m_Layer: 3
   m_Name: Raider
   m_TagString: Enemy
@@ -2408,7 +2408,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1.855667, z: 1}
   m_Center: {x: 0, y: 0.90170175, z: 0}
---- !u!114 &6014902947280870479
+--- !u!114 &1405858825596645792
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2417,9 +2417,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6753903744550867111}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 032a398604d3f984c98aa888a5293318, type: 3}
+  m_Script: {fileID: 11500000, guid: f3da4884a81eb5a4aaf7e1770156c480, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Unit
+  m_EditorClassIdentifier: Assembly-CSharp::Raider
   speed: 10
   targetTag: Player
 --- !u!1 &6753903744550867113

@@ -763,7 +763,7 @@ The polished WebGL build is published to Unity Play and submitted for the Unity 
 
 ## 11. Current Development Status
 
-**Current milestone:** Real Combat Loop complete. Preparing for Party Roles and Combat Behaviour.
+**Current milestone:** Stage 3 complete. Final cleanup and merge preparation.
 
 Stage 1 established the arena, autonomous target-seeking movement, multiple characters, replacement assets, spawning, camera and WebGL foundation.
 
@@ -771,10 +771,14 @@ Stage 2 replaced the temporary collision-based prototype with a reusable combat 
 
 `Target → Approach → Attack → Damage → Death → Retarget → Victory/Defeat`
 
-Units now have reusable health and attack systems with configurable health, damage, attack range and cooldowns. AI approaches living targets, faces them, attacks when in range, and retargets when necessary.
+Units now use reusable health and attack systems with configurable health, damage, attack range and cooldowns. Living targets are approached, faced and attacked autonomously, while dead units are ignored, play death animations and remain in the arena without blocking living units.
 
-Dead units stop moving and attacking, are ignored by targeting AI, play their death animations, and remain in the arena without physically blocking living units.
+Stage 3 introduced mechanically distinct party roles and a shared object-oriented unit architecture.
 
-The prototype now uses a finite Guardian-versus-Raiders test encounter. The battle detects victory and defeat, displays the result through a simple UI, and allows the player to restart the encounter.
+Guardian, Ranger and Healer now inherit from a shared `Unit` base class while reusable systems such as `Health` and `Attack` remain separate components. Shared movement, targeting, action state and combat flow are handled in the base class, while subclasses can override behaviour where their role differs.
 
-The next development priority is **Stage 3: Party Roles and Combat Behaviour**. This stage will introduce the Guardian, Ranger and Healer as mechanically distinct party members and begin moving the combat AI beyond shared closest-target behaviour.
+The Guardian acts as a durable melee frontline unit. The Ranger attacks from range using projectile-based attacks. The Healer prioritizes injured allies, restores health, and falls back to attacking enemies when no healing is required.
+
+The combat architecture now demonstrates inheritance, polymorphism, encapsulation and abstraction through the role hierarchy and reusable combat components.
+
+The current work is focused on final Stage 3 cleanup, combat timing validation and preparing the branch for merge into `main`.
