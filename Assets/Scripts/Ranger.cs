@@ -35,6 +35,6 @@ public class Ranger : Unit
             return;
         }
 
-        arrow.Initialize(target, attack);
+        arrow.Initialize(target, attack.AttackDamage);
     }
 }

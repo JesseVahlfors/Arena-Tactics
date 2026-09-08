@@ -7,6 +7,7 @@ public class Attack : MonoBehaviour
 {
     private static readonly int AttackHash = Animator.StringToHash("Attack");
     [SerializeField] private int attackDamage;
+    public int AttackDamage => attackDamage;
     [SerializeField] private int attackRange;
     [SerializeField] private float attackCooldown;
     private GameObject attackTarget;

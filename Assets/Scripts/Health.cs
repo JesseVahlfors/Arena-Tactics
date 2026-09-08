@@ -16,13 +16,18 @@ public class Health : MonoBehaviour
     void Awake()
     {
         animator = GetComponent<Animator>();
-
+        maxHealth = Mathf.Max(1, maxHealth);
         currentHealth = maxHealth;
     }
 
     public void TakeDamage(int amount)
     {
         if (IsDead)
+        {
+            return;
+        }
+
+        if (amount <= 0)
         {
             return;
         }
@@ -41,6 +46,11 @@ public class Health : MonoBehaviour
     public void Heal(int amount)
     {
         if (IsDead)
+        {
+            return;
+        }
+
+        if (amount <= 0)
         {
             return;
         }

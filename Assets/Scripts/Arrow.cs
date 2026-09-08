@@ -5,17 +5,17 @@ public class Arrow : MonoBehaviour
     [SerializeField] private float speed = 15f;
     [SerializeField] private float hitDistance = 0.1f;
     private GameObject target;
-    private Attack sourceAttack;
+    private int damage;
 
     void Update()
     {
         ArrowFlight();
     }
 
-    public void Initialize(GameObject newTarget, Attack newSourceAttack)
+    public void Initialize(GameObject newTarget, int damage)
     {
         target = newTarget;
-        sourceAttack = newSourceAttack;
+        this.damage = damage;
     }
 
     public void ArrowFlight()
@@ -32,7 +32,11 @@ public class Arrow : MonoBehaviour
 
         if (distance <= hitDistance)
         {
-            sourceAttack.ApplyDamage(target);
+            if (target.TryGetComponent<Health>(out Health targetHealth))
+            {
+                targetHealth.TakeDamage(damage);
+            }
+
             Destroy(gameObject);
             return;
         }
