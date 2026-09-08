@@ -10,6 +10,7 @@ public class Attack : MonoBehaviour
     [SerializeField] private int attackRange;
     [SerializeField] private float attackCooldown;
     private GameObject attackTarget;
+    public GameObject CurrentAttackTarget => attackTarget;
     private float nextAttackTime;
     private Animator animator;
     private Health health;

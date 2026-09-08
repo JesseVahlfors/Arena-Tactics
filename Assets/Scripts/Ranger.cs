@@ -5,9 +5,23 @@ public class Ranger : Unit
     [SerializeField] private GameObject arrowPrefab;
     [SerializeField] private Transform arrowSpawnPoint;
 
+
     public void SpawnArrow()
     {
+
         if (health.IsDead)
+        {
+            return;
+        }
+
+        GameObject target = attack.CurrentAttackTarget;
+
+        if (target == null)
+        {
+            return;
+        }
+
+        if (!target.TryGetComponent<Health>(out Health targetHealth) || targetHealth.IsDead)
         {
             return;
         }
@@ -21,6 +35,6 @@ public class Ranger : Unit
             return;
         }
 
-        arrow.Initialize(CurrentTarget, attack);
+        arrow.Initialize(target, attack);
     }
 }
