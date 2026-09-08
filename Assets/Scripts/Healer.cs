@@ -1,7 +1,5 @@
 using UnityEngine;
 [RequireComponent(typeof(Animator))]
-
-[RequireComponent(typeof(Unit))]
 public class Healer : Unit
 {
     private static readonly int HealActionHash = Animator.StringToHash("HealAction");
@@ -178,7 +176,5 @@ public class Healer : Unit
 
         healTarget = null;
         animator.ResetTrigger(HealActionHash);
-
-        attack.CancelAttack();
     }
 }
