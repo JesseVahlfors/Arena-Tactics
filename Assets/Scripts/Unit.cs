@@ -16,6 +16,9 @@ public class Unit : MonoBehaviour
     protected string TargetTag => targetTag;
     private GameObject currentTarget;
     protected GameObject CurrentTarget => currentTarget;
+    private bool isPerformingAction;
+    protected bool IsPerformingAction => isPerformingAction;
+    private bool deathHandled;
 
     protected virtual void Awake()
     {
@@ -29,6 +32,11 @@ public class Unit : MonoBehaviour
     {
         if (health.IsDead)
         {
+            if (!deathHandled)
+            {
+                CancelAction();
+                deathHandled = true;
+            }
             return;
         }
 
@@ -122,7 +130,7 @@ public class Unit : MonoBehaviour
 
     protected virtual void PerformCombatAction()
     {
-        if (attack.CanAttack())
+        if (attack.CanAttack() && TryBeginAction())
         {
             attack.AttackTarget(CurrentTarget);
         }
@@ -151,6 +159,28 @@ public class Unit : MonoBehaviour
     protected virtual bool ShouldFindNewTarget()
     {
         return !IsTargetValid();
+    }
+
+    protected bool TryBeginAction()
+    {
+        if (isPerformingAction)
+        {
+            return false;
+        }
+
+        isPerformingAction = true;
+        return true;
+    }
+
+    public void EndAction()
+    {
+        isPerformingAction = false;
+    }
+
+    protected virtual void CancelAction()
+    {
+        isPerformingAction = false;
+        attack.CancelAttack();
     }
 
 }

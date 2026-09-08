@@ -1,6 +1,7 @@
 using UnityEngine;
-
 [RequireComponent(typeof(Animator))]
+
+[RequireComponent(typeof(Unit))]
 public class Healer : Unit
 {
     private static readonly int HealActionHash = Animator.StringToHash("HealAction");
@@ -69,17 +70,14 @@ public class Healer : Unit
     {
         if (isHealing)
         {
-            if (CanHeal())
+            if (CanHeal() && TryBeginAction())
             {
                 BeginHeal(CurrentTarget);
             }
         }
         else
         {
-            if (attack.CanAttack())
-            {
-                attack.AttackTarget(CurrentTarget);
-            }
+            base.PerformCombatAction();
         }
     }
 
@@ -118,6 +116,8 @@ public class Healer : Unit
     public void OnHealEnd()
     {
         healTarget = null;
+
+        EndAction();
     }
 
     protected override bool ShouldFindNewTarget()
@@ -125,6 +125,11 @@ public class Healer : Unit
         if (base.ShouldFindNewTarget())
         {
             return true;
+        }
+
+        if (IsPerformingAction)
+        {
+            return false;
         }
 
         if (healTarget != null)
@@ -165,5 +170,15 @@ public class Healer : Unit
         }
 
         return false;
+    }
+
+    protected override void CancelAction()
+    {
+        base.CancelAction();
+
+        healTarget = null;
+        animator.ResetTrigger(HealActionHash);
+
+        attack.CancelAttack();
     }
 }

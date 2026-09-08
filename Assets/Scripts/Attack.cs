@@ -2,6 +2,7 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 
 [RequireComponent(typeof(Health))]
+[RequireComponent(typeof(Unit))]
 public class Attack : MonoBehaviour
 {
     private static readonly int AttackHash = Animator.StringToHash("Attack");
@@ -12,11 +13,13 @@ public class Attack : MonoBehaviour
     private float nextAttackTime;
     private Animator animator;
     private Health health;
+    private Unit unit;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         health = GetComponent<Health>();
+        unit = GetComponent<Unit>();
     }
 
     public bool CanAttack()
@@ -88,6 +91,11 @@ public class Attack : MonoBehaviour
     public void OnAttackEnd()
     {
         attackTarget = null;
+
+        if (unit != null)
+        {
+            unit.EndAction();
+        }
     }
 
     public void ApplyDamage(GameObject target)
@@ -101,5 +109,11 @@ public class Attack : MonoBehaviour
         {
             targetHealth.TakeDamage(attackDamage);
         }
+    }
+
+    public void CancelAttack()
+    {
+        attackTarget = null;
+        animator.ResetTrigger(AttackHash);
     }
 }
