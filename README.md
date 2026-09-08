@@ -25,23 +25,43 @@ The initial player party is designed around three distinct roles:
 
 Enemies will use their own roles and behaviors, with encounters becoming more difficult through different enemy compositions and improved AI behavior.
 
-## 🛠️ Current Development
+🛠️ Current Development
 
-The project currently contains the foundations developed while progressing through the Unity learning pathway.
+Arena Tactics has progressed from its initial Unity learning-pathway foundation into a functional autonomous combat prototype.
 
-Implemented or prototyped systems include:
+Implemented systems currently include:
 
-* Isometric arena and camera
-* Player and enemy characters
-* Rigidbody-based character movement
-* Basic autonomous enemy targeting
-* Finding and moving toward the closest opponent
-* Enemy spawning
-* Collision and interaction logic
-* Replacement of prototype primitives with game assets
-* Git/GitHub version control workflow
+Isometric arena and camera
 
-Many systems are currently prototypes and will be expanded or replaced as the project develops.
+Three distinct player roles: Guardian, Ranger, and Healer
+
+Enemy combat units with configurable stats
+
+Reusable health, damage, attack range, and cooldown systems
+
+Autonomous target selection and retargeting
+
+Rigidbody-based movement and range-aware combat
+
+Melee and ranged combat behaviour
+
+Healing and support behaviour
+
+Role-specific AI built on a shared Unit base class
+
+Death handling and animation without removing defeated units from the arena
+
+Victory and defeat detection
+
+Battle restart functionality
+
+Character movement, attack, and death animations
+
+Git/GitHub feature-branch development workflow
+
+The current development focus is Stage 4: Tactical Setup, which introduces the player's first meaningful pre-battle decisions. This includes a separate setup phase, predefined starting positions, party placement, a Start Battle flow, and configurable targeting priorities for each party role.
+
+These systems form the foundation for the larger goal of Arena Tactics: allowing the player to configure a party before battle and then watch those tactical decisions play out through autonomous combat.
 
 ## 🧠 Development Approach
 

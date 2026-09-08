@@ -333,7 +333,7 @@ Planned example:
 
 - [x] Develop a feature using a separate Git branch.
 - [x] Make multiple meaningful commits.
-- [ ] Merge completed feature branch into the main development branch.
+- [x] Merge completed feature branch into the main development branch.
 
 **Stage 3 completion condition:**
 
@@ -763,7 +763,7 @@ The polished WebGL build is published to Unity Play and submitted for the Unity 
 
 ## 11. Current Development Status
 
-**Current milestone:** Stage 3 complete. Final cleanup and merge preparation.
+**Current milestone:** Stage 4 — Player-Configurable Tactics and Starting Positions.
 
 Stage 1 established the arena, autonomous target-seeking movement, multiple characters, replacement assets, spawning, camera and WebGL foundation.
 
@@ -775,10 +775,20 @@ Units now use reusable health and attack systems with configurable health, damag
 
 Stage 3 introduced mechanically distinct party roles and a shared object-oriented unit architecture.
 
-Guardian, Ranger and Healer now inherit from a shared `Unit` base class while reusable systems such as `Health` and `Attack` remain separate components. Shared movement, targeting, action state and combat flow are handled in the base class, while subclasses can override behaviour where their role differs.
+Guardian, Ranger and Healer inherit from a shared `Unit` base class while reusable systems such as `Health` and `Attack` remain separate components. Shared movement, targeting, action state and combat flow are handled in the base class, while subclasses override behaviour where their roles differ.
 
 The Guardian acts as a durable melee frontline unit. The Ranger attacks from range using projectile-based attacks. The Healer prioritizes injured allies, restores health, and falls back to attacking enemies when no healing is required.
 
 The combat architecture now demonstrates inheritance, polymorphism, encapsulation and abstraction through the role hierarchy and reusable combat components.
 
-The current work is focused on final Stage 3 cleanup, combat timing validation and preparing the branch for merge into `main`.
+Stage 4 introduces the tactical setup layer that forms the central player-facing identity of Arena Tactics.
+
+Combat will be separated into a pre-battle setup state and an active battle state. During setup, combat AI remains inactive while the player arranges the party and configures basic tactical behaviour. A Start Battle action locks the configuration and begins autonomous combat.
+
+The first positioning system will use a small number of predefined player starting slots. Party members can be assigned between valid positions, occupied positions cannot be shared, and the available setup area should be clearly visible to the player.
+
+Each party role will also receive a small set of configurable targeting behaviours. Examples include choosing between closest or strongest enemies for the Guardian, closest or vulnerable priority targets for the Ranger, and different ally-healing priorities for the Healer.
+
+The goal is not yet to build the full future tactics or gambit system, but to prove that pre-battle decisions can visibly influence autonomous combat.
+
+Stage 4 is complete when the player can make at least one meaningful decision before battle that can visibly change the outcome of the encounter.
