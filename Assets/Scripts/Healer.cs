@@ -30,7 +30,7 @@ public class Healer : Unit
         else
         {
             isHealing = false;
-            return FindLowestHealthTarget("Enemy", injuredOnly: false);
+            return FindLowestHealthTarget(TargetTag, injuredOnly: false);
         }
     }
 

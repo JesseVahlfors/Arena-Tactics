@@ -242,10 +242,10 @@ The arena should remain relatively small so that combat begins quickly and the p
 
 #### Shared Unit Architecture
 
-- [ ] Create an appropriate shared unit/base class.
-- [ ] Move genuinely shared unit data into the base class.
-- [ ] Move genuinely shared combat behaviour into the base class.
-- [ ] Avoid duplicating common functionality between character types.
+- [x] Create an appropriate shared unit/base class.
+- [x] Move genuinely shared unit data into the base class.
+- [x] Move genuinely shared combat behaviour into the base class.
+- [x] Avoid duplicating common functionality between character types.
 
 Possible shared functionality:
 

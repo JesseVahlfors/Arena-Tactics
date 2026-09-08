@@ -18,7 +18,7 @@ public class Arrow : MonoBehaviour
         this.damage = damage;
     }
 
-    public void ArrowFlight()
+    private void ArrowFlight()
     {
         if (target == null)
         {

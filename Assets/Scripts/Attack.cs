@@ -60,16 +60,11 @@ public class Attack : MonoBehaviour
         }
 
         attackTarget = target;
-        BeginAttack(target);
+        BeginAttack();
     }
 
-    public void BeginAttack(GameObject target)
+    private void BeginAttack()
     {
-        if (target == null)
-        {
-            return;
-        }
-
         nextAttackTime = Time.time + attackCooldown;
         animator.SetTrigger(AttackHash);
 
@@ -83,6 +78,11 @@ public class Attack : MonoBehaviour
         }
 
         if (attackTarget == null)
+        {
+            return;
+        }
+
+        if (!InRange(attackTarget))
         {
             return;
         }
